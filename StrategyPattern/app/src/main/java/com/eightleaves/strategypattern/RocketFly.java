@@ -4,11 +4,11 @@ import android.content.Context;
 import android.util.Log;
 
 /**
- * Created by gkhera on 1/04/2016.
+ * Created by gkhera on 2/04/16.
  */
-public class FlyWithWings implements FlyBehaviour{
+public class RocketFly implements FlyBehaviour {
     private int mfly;
-    public FlyWithWings(int res){
+    public RocketFly(int res){
         mfly = res;
     }
     @Override
@@ -16,7 +16,7 @@ public class FlyWithWings implements FlyBehaviour{
         Log.d("Strategy Pattern", "I am flying");
         Holder holder = new Holder();
         holder.setImage(mfly);
-        holder.setText(R.string.canfly);
+        holder.setText(R.string.rocket_fly);
         return holder;
     }
 }

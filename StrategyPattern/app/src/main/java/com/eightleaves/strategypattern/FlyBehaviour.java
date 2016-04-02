@@ -6,5 +6,5 @@ import android.content.Context;
  * Created by gkhera on 1/04/2016.
  */
 public interface  FlyBehaviour {
-    public void fly(Context context);
+    public Holder fly(Context context);
 }

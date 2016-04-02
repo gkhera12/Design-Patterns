@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">StrategyPattern</string>
+    <string name="squeak">I Squeaked</string>
+    <string name="quack">I Quacked</string>
+    <string name="mute">I am Mute</string>
+    <string name="nofly">I cannot fly</string>
+    <string name="canfly">I can Fly</string>
+    <string name="rocket_fly">I can rocket fly</string>
 </resources>

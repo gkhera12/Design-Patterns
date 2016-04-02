@@ -8,25 +8,48 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView android:text="Click to Fly" android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/rubber_duck" android:text="Rubber Duck" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray"
         android:layout_marginTop="10dp"/>
-    <TextView android:text="Click to Still" android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/mallard_duck"
+        android:text="Mallard Duck" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray"
         android:layout_marginTop="10dp"/>
-    <TextView android:text="Click to Quack" android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/rocket_powered_duck"
+        android:text="Rocket Powered Duck" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray"
         android:layout_marginTop="10dp"/>
-
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@mipmap/ic_launcher"
+        android:layout_width="185dp"
+        android:layout_height="185dp"
+        android:id="@+id/duck_image"
+        android:src="@drawable/duck"
         android:layout_marginTop="40dp"/>
 
+    <TextView
+        android:id="@+id/duck_text"
+        android:text="I am normal duck" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="10dp"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/fly" android:text="Fly" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"/>
+        <Button
+            android:id="@+id/quack"
+            android:text="Quack" android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"/>
+    </LinearLayout>
 </LinearLayout>

@@ -6,12 +6,12 @@ import android.graphics.drawable.Drawable;
 /**
  * Created by gkhera on 1/04/2016.
  */
-public class Duck {
+public abstract class Duck {
     FlyBehaviour flyBehaviour;
     QuackBehaviour quackBehaviour;
     private Context mContext;
 
-    public void Duck(Context context){
+    public Duck(Context context){
         mContext = context;
     }
 
@@ -23,7 +23,12 @@ public class Duck {
         this.flyBehaviour = flyBehaviour;
     }
 
-    private Drawable display(){
-        return mContext.getDrawable(R.drawable.duck);
+    public Holder performFly(){
+        return flyBehaviour.fly(mContext);
     }
+
+    public int performQuack(){
+        return quackBehaviour.quack(mContext);
+    }
+    public abstract int display();
 }
