@@ -28,6 +28,11 @@ public class ForecastDisplay extends Fragment implements Observer, DisplayElemen
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.forecast_condition, container, false);
         forecastView =(ImageView)rootView.findViewById(R.id.forecast_condition);
+        ForecastData forecastData = Singleton.getInstance().getForecastData();
+        if(forecastData != null)
+        {
+            forecastView.setImageDrawable(getContext().getDrawable(forecastData.getImage()));
+        }
         if(savedInstanceState!=null){
             Bundle args = getArguments();
             forecastView.setImageDrawable(getContext().getDrawable(args.getInt(FORECAST_KEY)));
@@ -36,6 +41,9 @@ public class ForecastDisplay extends Fragment implements Observer, DisplayElemen
     }
     @Override
     public void display() {
+        ForecastData forecastData = new ForecastData();
+        forecastData.setImage(R.drawable.art_clouds);
+        Singleton.getInstance().setForecastData(forecastData);
         if(forecastView!=null){
             forecastView.setImageDrawable(getContext().getDrawable(R.drawable.art_clouds));
         }
@@ -44,7 +52,7 @@ public class ForecastDisplay extends Fragment implements Observer, DisplayElemen
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putInt(FORECAST_KEY,R.drawable.art_clouds);
+        outState.putInt(FORECAST_KEY, R.drawable.art_clouds);
         super.onSaveInstanceState(outState);
     }
     @Override

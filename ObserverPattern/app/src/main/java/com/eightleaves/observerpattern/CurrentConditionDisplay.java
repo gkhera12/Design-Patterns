@@ -34,6 +34,11 @@ public class CurrentConditionDisplay extends Fragment implements Observer, Displ
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.current_condition, container, false);
         currentConditionView = (TextView)rootView.findViewById(R.id.current_temp);
+        CurrentConditionData currentConditionData = Singleton.getInstance().getCurrentConditionData();
+        if(currentConditionData != null){
+            currentConditionView.setText("Temp:"+currentConditionData.getTemperature()+
+            " Humidity:"+currentConditionData.getHumidity());
+        }
         if(savedInstanceState !=null){
             Bundle args =getArguments();
             currentConditionView.setText(args.getString(CURRENT_CONDITION_KEY));
@@ -48,6 +53,10 @@ public class CurrentConditionDisplay extends Fragment implements Observer, Displ
     }
     @Override
     public void display() {
+        CurrentConditionData currentConditionData = new CurrentConditionData();
+        currentConditionData.setHumidity(humidity);
+        currentConditionData.setTemperature(temperature);
+        Singleton.getInstance().setCurrentConditionData(currentConditionData);
         if(getView()!=null){
         currentConditionView.setText("Temp:" + temperature + " Humidity:" + humidity);}
         Log.d("Observer Pattern","CurrentConditionDisplay->Temperature:"+temperature+" Humidity:"+humidity);
