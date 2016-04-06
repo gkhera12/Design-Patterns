@@ -7,14 +7,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  * Created by gkhera on 5/04/2016.
  */
 public class StatisticsDisplay extends Fragment implements DisplayElement, Observer {
-
+    private String temperature;
+    private String humidity;
+    private Observable observable;
+    public StatisticsDisplay(Observable observable){
+        this.observable = observable;
+        observable.addObserver(this);
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.weather_stats, container, false);
+        View rootView = inflater.inflate(R.layout.weather_stats, container, false);
+
+        return rootView;
     }
 
     @Override
@@ -23,7 +34,12 @@ public class StatisticsDisplay extends Fragment implements DisplayElement, Obser
     }
 
     @Override
-    public void update(float temp, float humidity, float pressure) {
+    public void update(Observable observable, Object args) {
+        if(observable instanceof WeatherData){
+            WeatherData weatherData = (WeatherData)observable;
+            this.temperature = weatherData.getTemperature();
+            this.humidity = weatherData.getHumidity();
+        }
         display();
     }
 }

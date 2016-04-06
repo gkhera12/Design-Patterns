@@ -8,5 +8,5 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Current Condition"
-        android:id="@+id/temperature" />
+        android:id="@+id/current_temp" />
 </LinearLayout>
