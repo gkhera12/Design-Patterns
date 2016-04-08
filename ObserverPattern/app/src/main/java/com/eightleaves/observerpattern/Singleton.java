@@ -14,6 +14,23 @@ public class Singleton {
     }
 
     private ForecastData forecastData;
+
+    public StatsData getStatsData() {
+        return statsData;
+    }
+
+    public void setStatsData(StatsData statsData) {
+        this.statsData = statsData;
+    }
+
+    public static Singleton getSingleton() {
+        return singleton;
+    }
+
+    public static void setSingleton(Singleton singleton) {
+        Singleton.singleton = singleton;
+    }
+
     private StatsData statsData;
 
     public CurrentConditionData getCurrentConditionData() {

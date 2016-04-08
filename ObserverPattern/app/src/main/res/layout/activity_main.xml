@@ -22,18 +22,50 @@
             android:orientation="vertical"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal">
-            <EditText
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal">
+            <TextView android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
+                android:text="Temperature: "/>
+            <EditText
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/temperature" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal">
+                <TextView android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Humidity: "/>
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/humidity" />
-            <EditText
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal">
+            <TextView android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
+                android:text="Pressure: "/>
+            <EditText
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/pressure" />
+                android:id="@+id/pressure"
+                />
+            </LinearLayout>
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

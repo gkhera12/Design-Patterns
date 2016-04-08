@@ -14,6 +14,7 @@ import java.util.concurrent.Callable;
         weatherData.setMeasurements(80,65,30.45f);
     }
 }*/
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.support.design.widget.TabLayout;
@@ -25,6 +26,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -84,6 +86,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             weatherData.setMeasurements(tempText.getText().toString(),
                     humidityText.getText().toString(), pressureText.getText().toString());
         }
+        InputMethodManager inputManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {

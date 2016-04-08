@@ -19,6 +19,7 @@ import java.util.Observer;
 public class CurrentConditionDisplay extends Fragment implements Observer, DisplayElement {
     private String temperature;
     private String humidity;
+    private String pressure;
     private TextView currentConditionView;
     private static Observable observable;
     private static String CURRENT_CONDITION_KEY ="current_condition_key";
@@ -56,6 +57,7 @@ public class CurrentConditionDisplay extends Fragment implements Observer, Displ
         CurrentConditionData currentConditionData = new CurrentConditionData();
         currentConditionData.setHumidity(humidity);
         currentConditionData.setTemperature(temperature);
+        currentConditionData.setPressure(pressure);
         Singleton.getInstance().setCurrentConditionData(currentConditionData);
         if(getView()!=null){
         currentConditionView.setText("Temp:" + temperature + " Humidity:" + humidity);}
@@ -68,6 +70,7 @@ public class CurrentConditionDisplay extends Fragment implements Observer, Displ
             WeatherData weatherData = (WeatherData)observable;
             this.temperature = weatherData.getTemperature();
             this.humidity = weatherData.getHumidity();
+            this.pressure = weatherData.getPressure();
         }
         display();
     }

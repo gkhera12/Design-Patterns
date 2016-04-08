@@ -31,7 +31,13 @@ public class ForecastDisplay extends Fragment implements Observer, DisplayElemen
         ForecastData forecastData = Singleton.getInstance().getForecastData();
         if(forecastData != null)
         {
-            forecastView.setImageDrawable(getContext().getDrawable(forecastData.getImage()));
+            if(Integer.valueOf(humidity)>80){
+                forecastView.setImageDrawable(getContext().getDrawable(R.drawable.art_rain));
+            }else if(Integer.valueOf(humidity)>50 && Integer.valueOf(humidity) <80){
+                forecastView.setImageDrawable(getContext().getDrawable(R.drawable.art_clouds));
+            }else{
+                forecastView.setImageDrawable(getContext().getDrawable(R.drawable.art_clear));
+            }
         }
         if(savedInstanceState!=null){
             Bundle args = getArguments();
@@ -45,7 +51,13 @@ public class ForecastDisplay extends Fragment implements Observer, DisplayElemen
         forecastData.setImage(R.drawable.art_clouds);
         Singleton.getInstance().setForecastData(forecastData);
         if(forecastView!=null){
-            forecastView.setImageDrawable(getContext().getDrawable(R.drawable.art_clouds));
+            if(Integer.valueOf(humidity)>80){
+            forecastView.setImageDrawable(getContext().getDrawable(R.drawable.art_rain));
+            }else if(Integer.valueOf(humidity)>50 && Integer.valueOf(humidity) <80){
+                forecastView.setImageDrawable(getContext().getDrawable(R.drawable.art_clouds));
+            }else{
+                forecastView.setImageDrawable(getContext().getDrawable(R.drawable.art_clear));
+            }
         }
         Log.d("Observer Pattern", "ForecastDisplay");
     }

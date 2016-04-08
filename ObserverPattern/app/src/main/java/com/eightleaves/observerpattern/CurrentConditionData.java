@@ -23,4 +23,14 @@ public class CurrentConditionData {
     }
 
     private String humidity;
+
+    public String getPressure() {
+        return pressure;
+    }
+
+    public void setPressure(String pressure) {
+        this.pressure = pressure;
+    }
+
+    private String pressure;
 }
