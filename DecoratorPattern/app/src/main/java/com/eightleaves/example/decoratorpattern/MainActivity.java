@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.reset:
                 espressoBtn.setEnabled(true);
                 houseBlendBtn.setEnabled(true);
+                orderView.setText("");
+                costView.setText("");
+                break;
             case R.id.espresso:
                 espressoBtn.setEnabled(false);
                 houseBlendBtn.setEnabled(false);
@@ -64,20 +67,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 espressoBtn.setEnabled(false);
                 houseBlendBtn.setEnabled(false);
                 beverage = new HouseBlend();
-
+                orderView.setText(String.valueOf(beverage.getDescription()));
                 costView.setText(String.valueOf(beverage.cost()));
                 break;
             case R.id.soy:
                 beverage = new Soy(beverage);
                 costView.setText(String.valueOf(beverage.cost()));
+                orderView.setText(beverage.getDescription());
                 break;
             case R.id.Whip:
                 beverage = new Whip(beverage);
                 costView.setText(String.valueOf(beverage.cost()));
+                orderView.setText(beverage.getDescription());
                 break;
             case R.id.mocha:
                 beverage = new Mocha(beverage);
                 costView.setText(String.valueOf(beverage.cost()));
+                orderView.setText(beverage.getDescription());
                 break;
         }
     }
