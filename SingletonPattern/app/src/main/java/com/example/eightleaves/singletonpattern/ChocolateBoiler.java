@@ -20,29 +20,32 @@ public class ChocolateBoiler {
         return uniqueInstance;
     }
 
-    public void fill(TextView boilerText){
+    public String fill(){
         if(isEmpty()){
             empty =false;
             boiled = false;
             Log.i(TAG,"Filling the Boiler");
-            boilerText.setText("Filling the Boiler");
+            return "Filling the Boiler";
         }
+        return "Already Filling";
     }
 
-    public void drain(TextView boilerText){
+    public String drain(){
         if(!isEmpty() && isBoiled()){
             empty =true;
             Log.i(TAG,"Draining the Boiler");
-            boilerText.setText("Draining the Boiler");
+            return "Draining the Boiler";
         }
+        return "Already Draining";
     }
 
-    public void boil(TextView boilerText){
+    public String boil(){
         if(!isEmpty() && !isBoiled()){
             boiled = true;
             Log.i(TAG,"Boiling the Chocolate");
-            boilerText.setText("Boiling the Chocolate");
+            return ("Boiling the Chocolate");
         }
+        return "Already Boiling";
     }
 
     public boolean isEmpty(){

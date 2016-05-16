@@ -7,24 +7,61 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private TextView boilerText;
+    private TextView fillText;
+    private TextView boilText;
+    private TextView drainText;
     private Button startBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        boilerText = (TextView) findViewById(R.id.state);
+        setContentView(R.layout.activity_main);
+        fillText = (TextView) findViewById(R.id.fill);
+        boilText = (TextView) findViewById(R.id.boil);
+        drainText = (TextView) findViewById(R.id.drain);
         startBtn = (Button)findViewById(R.id.start);
         startBtn.setOnClickListener(this);
-        setContentView(R.layout.activity_main);
     }
 
     public void onClick(View v){
         new Thread(new Runnable() {
             @Override
             public void run() {
-                ChocolateBoiler.getInstance().fill(boilerText);
-                ChocolateBoiler.getInstance().boil(boilerText);
-                ChocolateBoiler.getInstance().drain(boilerText);
+                fillText.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        fillText.setText(ChocolateBoiler.getInstance().fill());
+
+                    }
+                });
+                try {
+                    Thread.sleep(3000,0);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                boilText.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        fillText.setText("");
+                        boilText.setText(ChocolateBoiler.getInstance().boil());
+                    }
+                });
+                try {
+                    Thread.sleep(3000,0);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                drainText.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        boilText.setText("");
+                        drainText.setText(ChocolateBoiler.getInstance().drain());
+                    }
+                });
+                try {
+                    Thread.sleep(3000,0);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }).start();
 
