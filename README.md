@@ -1,4 +1,4 @@
 # Design-Patterns
-It contains Android based examples for Strategy pattern, Observable Pattern.
+It contains Android based examples for Strategy pattern, Observable Pattern, Decorator Pattern.
 
 The java examples are taken from Book "Head First Design Patterns" and incorporated in the Android Example.
